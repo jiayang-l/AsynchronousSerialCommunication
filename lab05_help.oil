@@ -1,0 +1,43 @@
+/* 
+Define TaskL to sample each 10ms since the error width
+*/
+
+OIL_VERSION = "2.5" : "test" ;
+
+CPU test {    
+  OS config {
+    STATUS = STANDARD;
+    BUILD = TRUE {
+      TRAMPOLINE_BASE_PATH = "/home/ubuntu22/Desktop/MyProjects/OSLabs/trampoline";  //set the path
+      APP_NAME = "Help_Hal"; // name of .hex
+      APP_SRC = "lab05_help.cpp"; //name of C code
+      CPPCOMPILER = "avr-g++";
+      COMPILER = "avr-gcc";
+      LINKER = "avr-gcc";
+      ASSEMBLER = "avr-gcc";
+      COPIER = "avr-objcopy";
+      SYSTEM = PYTHON;
+      
+      LIBRARY = serial; //call the serial
+    };
+    SYSTEM_CALL = TRUE;
+  };
+
+  APPMODE stdAppmode {};
+  
+  ALARM a10msec {
+    COUNTER = SystemCounter;
+    ACTION = ACTIVATETASK { TASK = TaskL; };
+    AUTOSTART = TRUE { APPMODE = stdAppmode; ALARMTIME = 10; CYCLETIME = 10; }; 
+  };
+
+
+  TASK TaskL {
+    PRIORITY = 10;
+    AUTOSTART = TRUE { APPMODE = stdAppmode; };
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+  };
+
+  
+};
