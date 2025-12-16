@@ -18,9 +18,9 @@ int digit_error = 0;
 #define PULSE_MAX_TICKS 12 // 60 ms
 
 #define DIGIT_GAP_MIN 20 // 100 ms
-#define DIGIT_GAP_MAX 40 // 200 ms
+#define DIGIT_GAP_MAX 39 // 200 ms
 
-#define NUMBER_GAP_MIN 41 // >200 ms → number ends
+#define NUMBER_GAP_MIN 40 // >200 ms → number ends
 
 void printDigit()
 {
