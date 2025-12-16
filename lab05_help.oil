@@ -25,10 +25,10 @@ CPU test {
 
   APPMODE stdAppmode {};
   
-  ALARM a10msec {
+  ALARM a5msec {
     COUNTER = SystemCounter;
     ACTION = ACTIVATETASK { TASK = TaskL; };
-    AUTOSTART = TRUE { APPMODE = stdAppmode; ALARMTIME = 10; CYCLETIME = 10; }; 
+    AUTOSTART = TRUE { APPMODE = stdAppmode; ALARMTIME = 5; CYCLETIME = 5; }; 
   };
 
 

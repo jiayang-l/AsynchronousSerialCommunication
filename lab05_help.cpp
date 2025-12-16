@@ -14,13 +14,13 @@ int pulse_count = 0;
 int digit_error = 0;
 
 //   Tick conversion (1.024ms per tick)
-#define PULSE_MIN_TICKS 3 // 40 ms
-#define PULSE_MAX_TICKS 6 // 60 ms
+#define PULSE_MIN_TICKS 8  // 40 ms
+#define PULSE_MAX_TICKS 12 // 60 ms
 
-#define DIGIT_GAP_MIN 10 // 100 ms
-#define DIGIT_GAP_MAX 19 // 200 ms
+#define DIGIT_GAP_MIN 20 // 100 ms
+#define DIGIT_GAP_MAX 40 // 200 ms
 
-#define NUMBER_GAP_MIN 20 // >200 ms → number ends
+#define NUMBER_GAP_MIN 41 // >200 ms → number ends
 
 void printDigit()
 {
@@ -45,7 +45,7 @@ void setup()
     StartOS(stdAppmode);
 }
 
-DeclareAlarm(a10msec);
+DeclareAlarm(a5msec);
 
 TASK(TaskL)
 {
