@@ -94,10 +94,8 @@ TASK(TaskL)
         if (low_ticks >= NUMBER_GAP_MIN)
         {
             // Serial.print("last digit:");
-            printDigit();
             Serial.println('/'); // number terminator
             Serial.print("next number:");
-
             pulse_count = 0;
             digit_error = 0;
             low_ticks = 0;
